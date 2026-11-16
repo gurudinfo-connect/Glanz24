@@ -4,9 +4,13 @@ import { getImage } from '../utils/images.js';
 
 export default function Hero() {
   const photo = getImage('hero');
+  const photoMobile = getImage('hero-mobile') || photo;
+  const vars = {};
+  if (photo) vars['--hero-photo'] = `url(${photo})`;
+  if (photoMobile) vars['--hero-photo-m'] = `url(${photoMobile})`;
   return (
     <section id="start" className="hero" aria-labelledby="hero-titel">
-      <div className="hero-photo" style={photo ? { backgroundImage: `url(${photo})` } : undefined} role="img" aria-label="Firmengebäude der Glanz24 GmbH" />
+      <div className="hero-photo" style={vars} role="img" aria-label="Firmengebäude der Glanz24 GmbH" />
       <div className="hero-stripe" aria-hidden="true" />
       <div className="hero-panel" aria-hidden="true" />
       <div className="hero-inner">
