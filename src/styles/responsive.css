@@ -16,7 +16,8 @@
   .hero-inner { padding: 36px 24px; }
   .info-grid { grid-template-columns: 1fr; gap: 6px; }
   .info-item { justify-content: flex-start; border-left: 0 !important; }
-  .card-grid { grid-template-columns: repeat(2, 1fr); }
+  .card { flex-basis: calc((100% - 22px) / 2); max-width: calc((100% - 22px) / 2); }
+  .lang-switch { margin-left: auto; }
   .about { grid-template-columns: 1fr; }
   .about-photo { clip-path: none; min-height: 200px; }
   .about-text { padding: 28px 24px; }
@@ -36,7 +37,8 @@
   .container { padding: 0 16px; }
   .hero h1 { font-size: 2.3rem; }
   .section-title { font-size: 1.55rem; }
-  .card-grid, .form-row, .footer-grid { grid-template-columns: 1fr; }
+  .card { flex-basis: 100%; max-width: 100%; }
+  .form-row, .footer-grid { grid-template-columns: 1fr; }
   .form-row { gap: 0; }
   .footer-col { padding: 14px 0; border-left: 0 !important; }
   .legal-row { grid-template-columns: 1fr; gap: 4px; }
@@ -98,4 +100,10 @@
   .service-layout, .is-flipped .service-layout { grid-template-columns: minmax(0, 1fr); }
   .service-layout > * { min-width: 0; }
   .service-content, .inquiry-box, .item-list { overflow-wrap: anywhere; }
+}
+@media (max-width: 420px) {
+  .lang-switch { padding: 3px 3px 3px 8px; gap: 2px; }
+  .lang-globe { display: none; }
+  .lang-btn { min-width: 34px; padding: 6px 8px; font-size: .78rem; }
+  .nav-toggle { padding: 8px; }
 }

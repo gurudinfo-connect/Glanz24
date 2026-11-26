@@ -1,9 +1,11 @@
 import { Check, ListChecks } from 'lucide-react';
 import MediaPanel from './MediaPanel.jsx';
+import { useLang } from '../i18n/LanguageContext.jsx';
 
 // Ein Geschäftsbereich als eigener Abschnitt der One-Page-Seite.
 export default function ServiceSection({ service, index }) {
   const s = service;
+  const { t } = useLang();
   const flip = index % 2 === 1;
   return (
     <section
@@ -17,7 +19,7 @@ export default function ServiceSection({ service, index }) {
           {s.inquiry && (
             <div className="inquiry-box">
               <h3>
-                <ListChecks size={20} aria-hidden="true" /> Hilfreich für Ihre Anfrage
+                <ListChecks size={20} aria-hidden="true" /> {t('helpful')}
               </h3>
               <ul>
                 {s.inquiry.map((q) => (
@@ -29,7 +31,7 @@ export default function ServiceSection({ service, index }) {
         </div>
 
         <div className="service-content">
-          <p className="eyebrow">Geschäftsbereich {String(index + 1).padStart(2, '0')}</p>
+          <p className="eyebrow">{t('area')} {String(index + 1).padStart(2, '0')}</p>
           <h2 id={s.slug + '-titel'} className="title-bar">{s.title}</h2>
           <p className="lead">{s.intro}</p>
           {s.paragraphs.map((p) => (
@@ -48,8 +50,8 @@ export default function ServiceSection({ service, index }) {
             ))}
           </ul>
           <div className="service-actions">
-            <a href="#kontakt" className="btn btn-gold">Jetzt anfragen</a>
-            <a href="#start" className="btn btn-outline-navy">Nach oben</a>
+            <a href="#kontakt" className="btn btn-gold">{t('inquire')}</a>
+            <a href="#start" className="btn btn-outline-navy">{t('toTop')}</a>
           </div>
         </div>
       </div>

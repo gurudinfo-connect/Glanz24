@@ -6,12 +6,13 @@ import ServiceSection from '../components/ServiceSection.jsx';
 import ContactInfo from '../components/ContactInfo.jsx';
 import ContactForm from '../components/ContactForm.jsx';
 import LegalSection from '../components/LegalSection.jsx';
-import { company } from '../data/company.js';
 import { services } from '../data/services.js';
 import { getImage } from '../utils/images.js';
+import { useLang } from '../i18n/LanguageContext.jsx';
 
 export default function Home() {
   const about = getImage('about');
+  const { t, tr } = useLang();
   return (
     <>
       <Hero />
@@ -19,25 +20,20 @@ export default function Home() {
 
       <section className="section services-intro" id="leistungen" aria-labelledby="leistungen-titel">
         <div className="container">
-          <p className="kicker"><span className="line" /> UNSERE LEISTUNGEN <span className="line" /></p>
-          <h2 id="leistungen-titel" className="section-title">Sechs Geschäftsbereiche aus einer Hand</h2>
-          <p className="section-sub">Umfassende Dienstleistungen für Unternehmen und Privatkunden.</p>
+          <p className="kicker"><span className="line" /> {t('svcKicker')} <span className="line" /></p>
+          <h2 id="leistungen-titel" className="section-title">{t('svcTitle')}</h2>
+          <p className="section-sub">{t('svcSub')}</p>
           <ServiceGrid />
         </div>
       </section>
 
       <section className="about" id="ueber-uns" aria-labelledby="ueber-titel">
-        <div className="about-photo" style={about ? { backgroundImage: `url(${about})` } : undefined} role="img" aria-label="Empfangsbereich der Glanz24 GmbH" />
+        <div className="about-photo" style={about ? { backgroundImage: `url(${about})` } : undefined} role="img" aria-label={t('aboutAlt')} />
         <div className="about-text">
-          <p className="kicker kicker-left"><span className="line" /> ÜBER UNS</p>
-          <h2 id="ueber-titel">Über uns</h2>
-          <p>
-            Die {company.name} ist eine Dienstleistungsfirma (Service Company) mit sechs
-            Geschäftsbereichen. Wir bieten unseren Kunden ein breites Leistungsspektrum – von
-            professionellem Gebäudemanagement über moderne IT-Services bis hin zu Automobile,
-            Unfallfahrzeuge, Personalvermittlung sowie Import &amp; Export.
-          </p>
-          <a href="#kontakt" className="btn btn-outline-gold">Mehr über uns <ArrowRight size={18} aria-hidden="true" /></a>
+          <p className="kicker kicker-left"><span className="line" /> {t('aboutKicker')}</p>
+          <h2 id="ueber-titel">{t('aboutTitle')}</h2>
+          <p>{t('aboutText')}</p>
+          <a href="#kontakt" className="btn btn-outline-gold">{t('aboutBtn')} <ArrowRight size={18} aria-hidden="true" /></a>
         </div>
       </section>
 
@@ -47,11 +43,11 @@ export default function Home() {
       </section>
 
       <div className="details-head">
-        <p className="kicker"><span className="line" /> IM DETAIL <span className="line" /></p>
-        <h2 className="section-title">Unsere Geschäftsbereiche im Überblick</h2>
+        <p className="kicker"><span className="line" /> {t('detKicker')} <span className="line" /></p>
+        <h2 className="section-title">{t('detTitle')}</h2>
       </div>
       {services.map((s, i) => (
-        <ServiceSection key={s.slug} service={s} index={i} />
+        <ServiceSection key={s.slug} service={tr(s)} index={i} />
       ))}
 
       <LegalSection />

@@ -27,3 +27,17 @@
   .main-nav > ul { gap: 2px; }
   .main-nav .nav-cta a { padding: 12px 16px; margin-left: 6px; }
 }
+
+/* Sprachauswahl DE / EN */
+.lang-switch { display: inline-flex; align-items: center; gap: 4px; margin-left: 14px; padding: 4px 4px 4px 10px; border: 1.5px solid var(--navy); border-radius: 999px; background: #fff; flex: none; }
+.lang-globe { color: var(--navy); flex: none; }
+.lang-btn { font: inherit; font-size: .82rem; font-weight: 800; letter-spacing: .03em; min-width: 38px; padding: 6px 10px; border: 0; border-radius: 999px; background: transparent; color: var(--navy); cursor: pointer; }
+.lang-btn:hover { background: var(--bg-soft); }
+.lang-btn.is-active { background: var(--navy); color: #fff; }
+@media (min-width: 1101px) and (max-width: 1360px) {
+  .main-nav a { padding: 11px 10px; font-size: .88rem; }
+  .main-nav .nav-cta a { padding: 11px 14px; margin-left: 4px; }
+  .logo-text { font-size: 1.4rem; }
+  .logo-mark { width: 42px; height: 42px; }
+  .lang-switch { margin-left: 8px; }
+}

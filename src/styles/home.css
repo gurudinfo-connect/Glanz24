@@ -24,8 +24,8 @@
 
 /* Leistungen */
 .services-intro { padding-top: 44px; padding-bottom: 28px; }
-.card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 8px; }
-.card { position: relative; display: flex; flex-direction: column; background: #fff; border-radius: var(--radius); box-shadow: 0 2px 14px rgba(14,35,71,.12); overflow: hidden; text-decoration: none; color: var(--ink); }
+.card-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 22px; margin-top: 8px; }
+.card { flex: 0 0 calc((100% - 44px) / 3); max-width: calc((100% - 44px) / 3); position: relative; display: flex; flex-direction: column; background: #fff; border-radius: var(--radius); box-shadow: 0 2px 14px rgba(14,35,71,.12); overflow: hidden; text-decoration: none; color: var(--ink); }
 .card:hover { box-shadow: 0 4px 20px rgba(14,35,71,.22); }
 .card-top { position: relative; }
 .card-photo { aspect-ratio: 2.4 / 1; overflow: hidden; background: var(--navy-2); }

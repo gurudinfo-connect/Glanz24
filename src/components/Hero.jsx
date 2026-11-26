@@ -1,8 +1,10 @@
 import { ArrowRight, Mail } from 'lucide-react';
 import { company } from '../data/company.js';
 import { getImage } from '../utils/images.js';
+import { useLang } from '../i18n/LanguageContext.jsx';
 
 export default function Hero() {
+  const { t } = useLang();
   const photo = getImage('hero');
   const photoMobile = getImage('hero-mobile') || photo;
   const vars = {};
@@ -10,20 +12,17 @@ export default function Hero() {
   if (photoMobile) vars['--hero-photo-m'] = `url(${photoMobile})`;
   return (
     <section id="start" className="hero" aria-labelledby="hero-titel">
-      <div className="hero-photo" style={vars} role="img" aria-label="Firmengebäude der Glanz24 GmbH" />
+      <div className="hero-photo" style={vars} role="img" aria-label={t('heroAlt')} />
       <div className="hero-stripe" aria-hidden="true" />
       <div className="hero-panel" aria-hidden="true" />
       <div className="hero-inner">
         <p className="hero-kicker"><span className="line" /> {company.name}</p>
         <h1 id="hero-titel">Glanz<span>24</span> GmbH</h1>
-        <p className="hero-tagline">Ihr zuverlässiger<br />Dienstleistungspartner</p>
-        <p className="hero-text">
-          Eine vielseitige Dienstleistungsfirma mit sechs Geschäftsbereichen – kompetent,
-          zuverlässig und kundenorientiert.
-        </p>
+        <p className="hero-tagline">{t('heroTag1')}<br />{t('heroTag2')}</p>
+        <p className="hero-text">{t('heroText')}</p>
         <div className="hero-actions">
-          <a href="#leistungen" className="btn btn-gold">Unsere Leistungen <ArrowRight size={18} aria-hidden="true" /></a>
-          <a href="#kontakt" className="btn btn-outline-light"><Mail size={18} aria-hidden="true" /> Kontakt</a>
+          <a href="#leistungen" className="btn btn-gold">{t('heroBtn1')} <ArrowRight size={18} aria-hidden="true" /></a>
+          <a href="#kontakt" className="btn btn-outline-light"><Mail size={18} aria-hidden="true" /> {t('heroBtn2')}</a>
         </div>
       </div>
     </section>
